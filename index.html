@@ -1,0 +1,352 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>for fazaoaoaa ♡</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #fff;
+      color: #24384b;
+      font-family: "Trebuchet MS", sans-serif;
+      overflow: hidden;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .decor {
+      position: absolute;
+      color: #83acd7;
+      font-size: 30px;
+      animation: float 3s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    .heart-one {
+      top: 12%;
+      left: 12%;
+    }
+
+    .heart-two {
+      right: 12%;
+      bottom: 15%;
+      animation-delay: 1s;
+    }
+
+    .sparkle {
+      position: absolute;
+      color: #8eb7df;
+      font-size: 19px;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .card-scene {
+      width: min(340px, 88vw);
+      height: 440px;
+      position: relative;
+      perspective: 1200px;
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    .card {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 1s cubic-bezier(.2,.7,.2,1);
+    }
+
+    .card-scene.open .card {
+      transform: rotateY(-180deg);
+    }
+
+    .front,
+    .inside {
+      position: absolute;
+      inset: 0;
+      border-radius: 20px;
+      background: #f8fbff;
+      border: 1px solid #e0ebf7;
+      box-shadow: 0 15px 45px rgba(79, 120, 163, .12);
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 25px;
+    }
+
+    .front {
+      background:
+        radial-gradient(ellipse at top, #edf5ff 0%, #fff 65%);
+    }
+
+    .front .small {
+      font-size: 12px;
+      letter-spacing: 4px;
+      color: #7798bc;
+      margin-bottom: 24px;
+    }
+
+    .envelope {
+      width: 180px;
+      height: 135px;
+      position: relative;
+      margin: 15px 0 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 76px;
+      background: #dcecff;
+      border-radius: 10px;
+      box-shadow: 0 8px 0 #c5dbf3;
+      transition: .3s;
+    }
+
+    .card-scene:hover .envelope {
+      transform: translateY(-5px) rotate(-2deg);
+    }
+
+    .front h2 {
+      font-size: 23px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .front p {
+      font-size: 13px;
+      color: #8a9db2;
+    }
+
+    .inside {
+      transform: rotateY(180deg);
+      background: #fff;
+      overflow: hidden;
+    }
+
+    .snoopy {
+      width: 175px;
+      height: 155px;
+      object-fit: contain;
+      margin-bottom: 14px;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .inside .hello {
+      font-size: 29px;
+      font-weight: bold;
+      color: #253c52;
+      margin-bottom: 14px;
+    }
+
+    .inside .message {
+      font-size: 17px;
+      line-height: 1.8;
+      color: #506b87;
+    }
+
+    .blue-heart {
+      color: #79a9dd;
+      display: inline-block;
+      animation: heartbeat 1.5s infinite;
+    }
+
+    .signature {
+      font-size: 13px;
+      color: #89a9cc;
+      margin-top: 23px;
+      letter-spacing: 1px;
+    }
+
+    .hint {
+      position: absolute;
+      bottom: 30px;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      font-size: 12px;
+      letter-spacing: 2px;
+      color: #9aafc6;
+      animation: fade 2s infinite alternate;
+    }
+
+    .petal {
+      position: absolute;
+      top: -20px;
+      color: #8db6e2;
+      opacity: .7;
+      pointer-events: none;
+      animation: fall linear forwards;
+      z-index: 5;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.18); }
+    }
+
+    @keyframes fade {
+      from { opacity: .45; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh) rotate(300deg);
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .card-scene {
+        height: 410px;
+      }
+
+      .inside .hello {
+        font-size: 25px;
+      }
+
+      .inside .message {
+        font-size: 15px;
+      }
+
+      .snoopy {
+        width: 150px;
+        height: 135px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+
+    <span class="decor heart-one">♡</span>
+    <span class="decor heart-two">♡</span>
+    <span class="sparkle" style="top:25%;right:18%">✧</span>
+    <span class="sparkle" style="bottom:25%;left:18%">✦</span>
+
+    <div class="card-scene" id="cardScene"
+         role="button" tabindex="0"
+         aria-label="Buka kartu untuk Fazaoaoaa">
+
+      <div class="card">
+
+        <!-- BAGIAN DEPAN KARTU -->
+        <div class="front">
+          <div class="small">A LITTLE MESSAGE FOR YOU</div>
+
+          <div class="envelope">💌</div>
+
+          <h2>for fazaoaoaa ♡</h2>
+          <p>ada sesuatu buat kamuuu...</p>
+        </div>
+
+        <!-- BAGIAN DALAM KARTU -->
+        <div class="inside">
+
+          <!-- Gambar Snoopy otomatis dari Wikimedia -->
+          <img
+            class="snoopy"
+            src="https://upload.wikimedia.org/wikipedia/en/5/53/Snoopy_Peanuts.png"
+            alt="Snoopy"
+            onerror="this.style.display='none'"
+          >
+
+          <div class="hello">hii fazaoaoaa,</div>
+
+          <div class="message">
+            si cia ini<br>
+            kangen kamuuu
+            <span class="blue-heart">♥</span>
+          </div>
+
+          <div class="signature">a little hug from cia ♡</div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="hint" id="hint">
+      TAP THE CARD TO OPEN ♡
+    </div>
+
+  </main>
+
+  <script>
+    const scene = document.getElementById("cardScene");
+    const hint = document.getElementById("hint");
+
+    let opened = false;
+
+    function openCard() {
+      if (opened) return;
+
+      opened = true;
+      scene.classList.add("open");
+      hint.textContent = "a little message just for you ♡";
+
+      // Animasi hati kecil setelah kartu dibuka
+      for (let i = 0; i < 18; i++) {
+        setTimeout(() => {
+          const heart = document.createElement("span");
+
+          heart.className = "petal";
+          heart.textContent = Math.random() > 0.5 ? "♡" : "♥";
+          heart.style.left = Math.random() * 100 + "vw";
+          heart.style.fontSize = (12 + Math.random() * 13) + "px";
+          heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+
+          document.body.appendChild(heart);
+
+          heart.addEventListener("animationend", () => {
+            heart.remove();
+          });
+        }, i * 120);
+      }
+    }
+
+    scene.addEventListener("click", openCard);
+
+    scene.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        openCard();
+      }
+    });
+  </script>
+</body>
+</html>
